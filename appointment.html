@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Appointment - Dental Clinic</title>
+    <link rel="icon" href="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/09/Dental-Logo-Design.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-green: #82cc16;
+            --secondary-blue: #008080; 
+            --light-bg: #f4f7f6;
+            --text-dark: #333;
+            --text-medium: #555;
+            --text-light: #777;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-medium);
+            background-color: var(--light-bg);
+            padding-top: 155px; 
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-menu li a.active,
+        .nav-menu li a:hover {
+            background-color: var(--primary-green);
+            color: #fff;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .info-bar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        .info-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .info-item i {
+            font-size: 28px;
+            color: var(--primary-green);
+        }
+        .info-text strong {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+        .info-text span {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .info-text a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .main-content {
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .form-container, .appointments-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--secondary-blue);
+        }
+        .appointments-container {
+            border-top: 5px solid var(--primary-green);
+        }
+        .form-container h2, .appointments-container h2 {
+            text-align: center;
+            color: var(--secondary-blue);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .appointments-container h2 {
+            color: var(--primary-green);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group input[type="date"] {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
+            outline: none;
+        }
+        .gender-options {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .gender-options label {
+            font-weight: 400;
+            margin-bottom: 0;
+            color: var(--text-medium);
+        }
+        .gender-options input[type="radio"] {
+            margin-right: 5px;
+            accent-color: var(--secondary-blue); 
+        }
+        .submit-btn {
+            background-color: var(--secondary-blue);
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            width: 100%;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #006666; 
+            transform: translateY(-2px);
+        }
+        #appointmentList {
+            list-style: none;
+            padding: 0;
+        }
+        .appointment-card {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .appointment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .appointment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-green);
+        }
+        .appointment-card p {
+            margin: 5px 0;
+            padding-left: 10px;
+            line-height: 1.6;
+        }
+        .appointment-card strong {
+            color: var(--text-dark);
+            display: inline-block;
+            width: 120px;
+            font-weight: 600;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            float: right;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+        #status-message {
+            text-align: center;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 10px 0;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-menu li a {
+                padding: 15px;
+                display: block;
+                width: 100%;
+            }
+            .info-bar-container .info-item:nth-child(2),
+            .info-bar-container .info-item:nth-child(4) {
+                display: none;
+            }
+            .info-bar-container {
+                justify-content: space-around;
+            }
+            .form-container, .appointments-container {
+                margin: 10px;
+                padding: 30px;
+            }
+        }
+    </style>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // Replace with your actual Public Key from your EmailJS account
+        emailjs.init("wMXI-al4fuq4e8I3u"); 
+    })();
+</script>
+</head>
+<body>
+
+    <header class="fixed-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/3Wq5gJd/bharath-dental-logo.png" alt="Bharath Dental Clinic Logo">
+                Dental Clinic
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <i class="fa-solid fa-bars mobile-menu-toggle"></i>
+        </div>
+        <div class="info-bar">
+            <div class="container info-bar-container">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="info-text">
+                        <a href="http://googleusercontent.com/maps.google.com/4" target="_blank">
+                            <strong>Anjaiah Road</strong>
+                            <span>Ongole, AP</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <div class="info-text">
+                        <strong>Opening Hours</strong>
+                        <span>Mon - Sat: Until 9:00pm</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <div class="info-text">
+                        <a href="tel:08686861466">
+                            <strong>08686861466</strong>
+                            <span>Call us now!</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <div class="info-text">
+                        <strong>7 Years Experience</strong>
+                        <span>MDS in Endodontics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <div class="form-container">
+            <h2>Book Your Slot Now</h2>
+            <div id="status-message" style="color: red;"></div>
+            <form id="appointmentForm">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Your age" min="1" max="120" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                        <label><input type="radio" name="gender" value="Other"> Other</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobileNumber" placeholder="10 digits only" maxlength="10" pattern="\d{10}" required>
+                    <small style="color: var(--text-light); display: block; margin-top: 5px;">Example: 9876543210</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="userEmail" placeholder="Enter your email for confirmation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date of Appointment</label>
+                    <input type="date" id="date" name="appointmentDate" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Confirm Appointment</button>
+            </form>
+        </div>
+
+        <div class="appointments-container">
+            <h2>Your Pending Appointments</h2>
+            <ul id="appointmentList">
+                <p style="text-align: center; color: var(--text-light); padding: 20px;">No appointments booked yet. Use the form to the left.</p>
+            </ul>
+        </div>
+    </main>
+    
+    <footer style="background-color: #222; color: #ccc; padding: 30px 0; text-align: center;">
+        <div class="container">
+            &copy; 2025 Dental Clinic. All Rights Reserved.
+        </div>
+    </footer>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dateInput = document.getElementById('date');
+        const form = document.getElementById('appointmentForm');
+        const appointmentList = document.getElementById('appointmentList');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const statusMessage = document.getElementById('status-message');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const todayString = `${year}-${month}-${day}`;
+        
+        dateInput.setAttribute('min', todayString);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const genderElement = document.querySelector('input[name="gender"]:checked');
+            const mobile = document.getElementById('mobile').value;
+            const email = document.getElementById('email').value;
+            const date = dateInput.value;
+
+            if (!genderElement) {
+                statusMessage.textContent = 'Please select a gender.';
+                statusMessage.style.color = 'red';
+                return;
+            }
+            const gender = genderElement.value;
+            
+            const hospitalTemplateParams = {
+                user_name: name,
+                user_age: age,
+                user_gender: gender,
+                user_mobile: mobile,
+                user_email: email,
+                reply_to: email,
+                appointment_date: date
+            };
+            
+            const userTemplateParams = {
+                user_name: name,
+                appointment_date: date,
+                to_email: email
+            };
+
+            statusMessage.textContent = 'Confirming your appointment...';
+            statusMessage.style.color = 'var(--secondary-blue)';
+
+            const SERVICE_ID = 'service_1ydxwip'; 
+            const HOSPITAL_TEMPLATE_ID = 'template_ugq0i1r';
+            const USER_TEMPLATE_ID = 'template_9m8ieob';
+
+            emailjs.send(SERVICE_ID, HOSPITAL_TEMPLATE_ID, hospitalTemplateParams)
+                .then(function(response) {
+                    console.log('Hospital notification SUCCESS!', response.status, response.text);
+                    
+                    emailjs.send(SERVICE_ID, USER_TEMPLATE_ID, userTemplateParams)
+                        .then(function(response) {
+                             console.log('User confirmation SUCCESS!', response.status, response.text);
+                             statusMessage.textContent = 'Appointment booked! A confirmation has been sent to your email.';
+                             statusMessage.style.color = 'var(--primary-green)';
+                        }, function(error){
+                             console.log('User confirmation FAILED...', error);
+                             statusMessage.textContent = 'Appointment booked! (But failed to send confirmation email.)';
+                             statusMessage.style.color = 'var(--primary-green)';
+                        });
+
+                    const appointmentId = Date.now().toString();
+                    const listItem = document.createElement('li');
+                    listItem.className = 'appointment-card';
+                    listItem.setAttribute('data-id', appointmentId);
+                    listItem.innerHTML = `
+                        <button class="delete-btn" onclick="deleteAppointment('${appointmentId}')">Delete</button>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Mobile:</strong> ${mobile}</p>
+                        <p><strong>Date:</strong> ${date}</p>
+                    `;
+
+                    if (appointmentList.querySelector('p')) {
+                        appointmentList.innerHTML = '';
+                    }
+                    appointmentList.prepend(listItem);
+
+                    form.reset();
+                    dateInput.setAttribute('min', todayString);
+
+                }, function(error) {
+                    console.log('Hospital notification FAILED...', error);
+                    statusMessage.textContent = 'Booking failed. Please call the clinic to confirm.';
+                    statusMessage.style.color = 'red';
+                });
+        });
+    });
+
+    function deleteAppointment(id) {
+        if (confirm('Are you sure you want to delete this appointment?')) {
+            const appointmentCard = document.querySelector(`.appointment-card[data-id="${id}"]`);
+            if (appointmentCard) {
+                appointmentCard.remove();
+                
+                const appointmentList = document.getElementById('appointmentList');
+                if (appointmentList.children.length === 0) {
+                    appointmentList.innerHTML = '<p style="text-align: center; color: var(--text-light); padding: 20px;">No appointments booked yet. Use the form to the left.</p>';
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

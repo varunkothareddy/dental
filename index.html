@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Bharath Dental - Ongole</title>
+    <link rel="icon" href="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/09/Dental-Logo-Design.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+            background-color: #fff;
+            padding-top: 155px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 26px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu li a {
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu li a.active,
+        .nav-menu li a:hover {
+            background-color: #82cc16;
+            color: #fff;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .info-bar {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .info-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-item i {
+            font-size: 28px;
+            color: #82cc16;
+        }
+
+        .info-text strong {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+        
+        .info-text span {
+            font-size: 14px;
+            color: #777;
+        }
+       
+        .hero {
+            background-image: url('https://i.pinimg.com/1200x/2a/44/a7/2a44a710635937294fdc054d7f9d6ffd.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 600px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+            color: #080808;
+        }
+
+        .hero-overlay h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-overlay p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-green {
+            background-color: #82cc16;
+            color: #fff;
+        }
+        
+        .btn-green:hover {
+            background-color: #6daa13;
+        }
+
+        .btn-white {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .btn-white:hover {
+            background-color: #f0f0f0;
+        }
+
+        .cta-bar {
+            background-color: #82cc16;
+            padding: 30px 0;
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        
+        .cta-container p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex-basis: 50%;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-content {
+            flex-basis: 50%;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .stats-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 40px;
+            color: #82cc16;
+            margin-bottom: 15px;
+        }
+
+        .stat-item .number {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .stat-item .label {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 60px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            background-color: #f9f9f9;
+        }
+
+        .testimonials-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            text-align: center;
+            position: relative;
+            flex-basis: 33.33%;
+        }
+        
+        .testimonial-card.active {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .testimonial-card .quote-icon {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #82cc16;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card h4 {
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .testimonial-card .role {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .newsletter-bar {
+            background-color: #82cc16;
+            padding: 60px 0;
+            color: #fff;
+        }
+        
+        .newsletter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .newsletter-container h3 {
+            font-size: 24px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #000;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 80px 0 30px;
+            position: relative;
+            background-image: linear-gradient(rgba(34, 34, 34, 0.95), rgba(34, 34, 34, 0.95)), url('https://i.pinimg.com/736x/33/09/8d/33098dc2b1e67b2cc375a74602096851.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about .logo {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-widget h4 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #82cc16;
+        }
+
+        .opening-hours-table {
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        .opening-hours-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        
+        .opening-hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .opening-hours-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        main, footer {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-container {
+                flex-direction: column;
+            }
+            .testimonial-card.active {
+                transform: scale(1);
+            }
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .info-bar-container {
+                justify-content: space-evenly;
+            }
+            .info-item {
+                gap: 8px;
+            }
+            .info-item i {
+                font-size: 24px;
+            }
+            .info-text strong {
+                font-size: 14px;
+            }
+            .info-text span {
+                font-size: 13px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 138px;
+            }
+            
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 10px 0;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-menu li a {
+                padding: 15px;
+                display: block;
+                width: 100%;
+            }
+
+            .info-bar {
+                padding: 10px 0;
+            }
+
+            .info-bar-container {
+                justify-content: space-around;
+            }
+
+            .info-bar-container .info-item:nth-child(2),
+            .info-bar-container .info-item:nth-child(4) {
+                display: none;
+            }
+            
+            .info-item i {
+                font-size: 24px;
+            }
+            .info-text strong {
+                font-size: 13px;
+            }
+            .info-text span {
+                font-size: 12px;
+            }
+
+            .hero-overlay {
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                align-items: center;
+            }
+            .hero-overlay h1 {
+                font-size: 36px;
+            }
+            .hero-overlay p {
+                font-size: 15px;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .cta-container p {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .stats-container {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            .stat-item {
+                flex-basis: calc(50% - 15px);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-icons {
+                margin: 0 auto;
+            }
+            .opening-hours-table td {
+                text-align: left;
+            }
+            .opening-hours-table td:last-child {
+                text-align: right;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .logo {
+                font-size: 18px;
+            }
+            .info-item {
+                gap: 8px;
+            }
+            .info-item i {
+                font-size: 20px;
+            }
+            .info-text strong {
+                font-size: 12px;
+            }
+            .info-text span {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fixed-header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/3Wq5gJd/bharath-dental-logo.png" alt="Bharath Dental Clinic Logo">
+                Dental Clinic
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <i class="fa-solid fa-bars mobile-menu-toggle"></i>
+        </div>
+        <div class="info-bar">
+            <div class="container info-bar-container">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="info-text">
+                        <a href="http://googleusercontent.com/maps.google.com/4" target="_blank">
+                            <strong>Anjaiah Road</strong>
+                            <span>Ongole, AP</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <div class="info-text">
+                        <strong>Opening Hours</strong>
+                        <span>Mon - Sat: Until 9:00pm</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <div class="info-text">
+                        <a href="tel:08686861466">
+                            <strong>08686861466</strong>
+                            <span>Call us now!</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <div class="info-text">
+                        <strong>7 Years Experience</strong>
+                        <span>MDS in Endodontics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay">
+                <h1>Advanced & Digital Dentistry</h1>
+                <p>Welcome to <strong><b>Dental Clinic</b></strong> , providing top-quality microscopic and digital dentistry for a brighter, healthier smile right here in Ongole.</p>
+                <a href="appointment.html" class="btn btn-green">Book Appointment</a>
+            </div>
+        </section>
+
+        <div class="cta-bar reveal-on-scroll">
+            <div class="container cta-container">
+                <p>Schedule your appointment for a free consultation.</p>
+                <a href="appointment.html" class="btn btn-white">Book Now</a>
+            </div>
+        </div>
+        
+        <section class="reveal-on-scroll">
+            <div class="container about">
+                <div class="about-image">
+                    <img src="https://i.pinimg.com/736x/c2/4e/08/c24e08a8b07cbe5007d81cb3531a8589.jpg" alt="Dentist smiling">
+                </div>
+                <div class="about-content">
+                    <h2>We Care About Your Teeth</h2>
+                    <p>With 7 years in healthcare and an MDS in Conservative Dentistry & Endodontics, Dr. Dental is committed to providing the highest standard of dental care using modern technology and techniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-bar reveal-on-scroll">
+            <div class="container stats-container">
+                <div class="stat-item">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <div class="number">7+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <div class="number">41+</div>
+                    <div class="label">5-Star Ratings</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-award"></i>
+                    <div class="number">MDS</div>
+                    <div class="label">Endodontics</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <div class="number">100%</div>
+                    <div class="label">Patient Focused</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services reveal-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <a href="root_canal.html" class="service-card-link">
+                        <div class="service-card">
+                            <img src="https://i.pinimg.com/736x/0d/d0/93/0dd0933b6bc99219f68e0e807e20b7bd.jpg" alt="Root Canal Icon">
+                            <h3>RCT (Root Canal)</h3>
+                            <p>Advanced microscopic treatment for saving your natural teeth and relieving pain effectively.</p>
+                        </div>
+                    </a>
+                    <a href="ceramic.html" class="service-card-link">
+                        <div class="service-card">
+                            <img src="https://i.pinimg.com/1200x/db/53/93/db5393e56e18a1d9171338792fffdc72.jpg" alt="Crowns Icon">
+                            <h3>Ceramic Crowns & Bridges</h3>
+                            <p>High-quality, natural-looking crowns and bridges to restore your smile's function and aesthetics.</p>
+                        </div>
+                    </a>
+                     <a href="implants.html" class="service-card-link">
+                        <div class="service-card">
+                            <img src="https://i.pinimg.com/736x/45/a0/7b/45a07b1faaf08fba1d2bb6a28a3e1760.jpg" alt="Dental Implant Icon">
+                            <h3>Implantology</h3>
+                            <p>State-of-the-art dental implants to provide a permanent and stable solution for missing teeth.</p>
+                        </div>
+                    </a>
+                    <a href="surgical.html" class="service-card-link">
+                        <div class="service-card">
+                            <img src="https://i.pinimg.com/736x/a7/86/8a/a7868aade9467f7044e19463a79058ce.jpg" alt="Extraction Icon">
+                            <h3>Surgical Tooth Extraction</h3>
+                            <p>Safe and professional removal of problematic teeth, including wisdom teeth, with minimal discomfort.</p>
+                        </div>
+                    </a>
+                    <a href="laser.html" class="service-card-link">
+                        <div class="service-card">
+                            <img src="https://i.pinimg.com/736x/38/1c/bb/381cbb3ed4bba6d221c0f96290cf902f.jpg" alt="Laser Dentistry Icon">
+                            <h3>Laser Dentistry</h3>
+                            <p>Modern, painless laser treatments for a variety of dental procedures, ensuring faster healing.</p>
+                        </div>
+                    </a>
+                    <a href="cosmetic.html" class="service-card-link">
+                        <div class="service-card">
+                            <img src="https://i.pinimg.com/1200x/b4/17/60/b41760bc1e1408bf6a9f68fe83943029.jpg" alt="Cosmetic Dentistry Icon">
+                            <h3>Cosmetic Dentistry</h3>
+                            <p>Enhance the beauty of your smile with services like teeth whitening, veneers, and smile makeovers.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials reveal-on-scroll">
+            <div class="container">
+                <h2 class="section-title">What Our Patients Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p>"The best dental experience I've had in Ongole. Very professional and caring."</p>
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Patient photo">
+                        <h4>Santhosh K.</h4>
+                        <span class="role">Patient</span>
+                    </div>
+                    <div class="testimonial-card active">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p>"Dr. Bharath is highly skilled. My root canal was completely painless. Highly recommended!"</p>
+                        <img src="https://i.pravatar.cc/150?img=2" alt="Patient photo">
+                        <h4>Priya R.</h4>
+                        <span class="role">Patient</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p>"A very clean and modern clinic with the latest technology. The staff is friendly too."</p>
+                        <img src="https://i.pravatar.cc/150?img=3" alt="Patient photo">
+                        <h4>Anil Varma</h4>
+                        <span class="role">Patient</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-bar reveal-on-scroll">
+            <div class="container newsletter-container">
+                <h3>Subscribe to our newsletter</h3>
+                <p>To get valuable dental care tips, join our newsletter. Zero spam, we promise.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="reveal-on-scroll">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="logo">
+                        <img src="https://i.ibb.co/3Wq5gJd/bharath-dental-logo.png" alt="Bharath Dental Clinic Logo" style="height: 40px; margin-right: 10px;">
+                        Dental Clinic
+                    </div>
+                    <p>Providing quality dental care with a team of experienced professionals. Your smile is our priority.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/dr.bharathdental?igsh=b3BvOWFzNjl3MnJ1"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="root_canal.html">Root Canal (RCT)</a></li>
+                        <li><a href="ceramic.html">Ceramic Crowns</a></li>
+                        <li><a href="laser.html">Laser Dentistry</a></li>
+                        <li><a href="implants.html">Implants</a></li>
+                        <li><a href="surgical.html">Extractions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Opening Hours</h4>
+                    <table class="opening-hours-table">
+                        <tbody>
+                            <tr><td>Monday</td><td>9:00am - 9:00pm</td></tr>
+                            <tr><td>Tuesday</td><td>9:00am - 9:00pm</td></tr>
+                            <tr><td>Wednesday</td><td>9:00am - 9:00pm</td></tr>
+                            <tr><td>Thursday</td><td>9:00am - 9:00pm</td></tr>
+                            <tr><td>Friday</td><td>9:00am - 9:00pm</td></tr>
+                            <tr><td>Saturday</td><td>9:00am - 9:00pm</td></tr>
+                            <tr><td>Sunday</td><td>9:00am - 9:00pm</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Dental Clinic. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.1 
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>

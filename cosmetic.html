@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic Dentistry - Dental Clinic</title>
+    <link rel="icon" href="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/09/Dental-Logo-Design.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- Basic & Header/Footer Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #555; background-color: #f9f9f9; padding-top: 155px; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .fixed-header { position: fixed; top: 0; left: 0; width: 100%; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { display: flex; align-items: center; font-size: 26px; font-weight: 700; color: #333; text-decoration: none; }
+        .logo img { height: 50px; margin-right: 10px; }
+        .nav-menu { list-style: none; display: flex; gap: 10px; }
+        .nav-menu li a { text-decoration: none; color: #333; font-weight: 500; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease; }
+        .nav-menu li a:hover, .nav-menu li a.active { background-color: #82cc16; color: #fff; }
+        .mobile-menu-toggle { display: none; font-size: 24px; cursor: pointer; color: #333; }
+        .info-bar { background-color: #f8f9fa; border-top: 1px solid #e9ecef; }
+        .info-bar-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .info-item { display: flex; align-items: center; gap: 15px; }
+        .info-item i { font-size: 28px; color: #82cc16; }
+        .info-text strong { display: block; font-weight: 600; color: #333; font-size: 15px; }
+        .info-text span { font-size: 14px; color: #777; }
+        .info-text a { text-decoration: none; color: inherit; }
+        footer { background-color: #222; color: #ccc; padding: 30px 0; text-align: center; }
+
+        /* --- Page-Specific Styles --- */
+        .page-hero { background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1583344421992-0a1515084a22?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 60px 20px; text-align: center; color: #fff; }
+        .page-hero h1 { font-size: 42px; margin-bottom: 10px; }
+        .page-hero p { font-size: 18px; font-weight: 300; }
+        .service-content-section { padding: 80px 0; background-color: #fff; }
+        .service-container { display: flex; align-items: center; gap: 50px; }
+        .service-text { flex: 1; }
+        .service-text h2 { font-size: 32px; color: #333; margin-bottom: 20px; }
+        .service-text p { line-height: 1.8; margin-bottom: 20px; }
+        .service-image { flex: 1; text-align: center; }
+        .service-image img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .btn { padding: 12px 25px; text-decoration: none; font-weight: 600; border-radius: 5px; transition: background-color 0.3s ease; display: inline-block; background-color: #82cc16; color: #fff; }
+        .btn:hover { background-color: #6daa13; }
+
+        /* --- KEYFRAMES AND ANIMATION STYLES --- */
+        @keyframes slideInFromLeft { 0% { transform: translateX(-50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        main, footer { animation: slideInFromLeft 0.8s ease-out; }
+        .reveal-on-scroll { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+        .reveal-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            body { padding-top: 138px; }
+            .mobile-menu-toggle { display: block; }
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { width: 100%; text-align: center; }
+            .nav-menu li a { padding: 15px; display: block; }
+            .info-bar-container .info-item:nth-child(2), .info-bar-container .info-item:nth-child(4) { display: none; }
+            .info-bar-container { justify-content: space-around; }
+            .service-container { flex-direction: column; }
+            .page-hero h1 { font-size: 34px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="https://i.ibb.co/3Wq5gJd/bharath-dental-logo.png" alt="Logo"> Dental Clinic</a>
+            <nav><ul class="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service.html" class="active">Service</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+            <i class="fa-solid fa-bars mobile-menu-toggle"></i>
+        </div>
+        <div class="info-bar">
+            <div class="container info-bar-container">
+                <div class="info-item"><i class="fa-solid fa-location-dot"></i><div class="info-text"><a href="http://googleusercontent.com/maps.google.com/4" target="_blank"><strong>Anjaiah Road</strong><span>Ongole, AP</span></a></div></div>
+                <div class="info-item"><i class="fa-regular fa-clock"></i><div class="info-text"><strong>Opening Hours</strong><span>Mon - Sat: Until 9:00pm</span></div></div>
+                <div class="info-item"><i class="fa-solid fa-phone-volume"></i><div class="info-text"><a href="tel:08686861466"><strong>08686861466</strong><span>Call us now!</span></a></div></div>
+                <div class="info-item"><i class="fa-regular fa-calendar-check"></i><div class="info-text"><strong>7 Years Experience</strong><span>MDS in Endodontics</span></div></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero reveal-on-scroll">
+            <h1>Cosmetic Dentistry</h1>
+            <p>Achieve the beautiful, confident smile you've always dreamed of.</p>
+        </section>
+        <section class="service-content-section reveal-on-scroll">
+            <div class="container service-container">
+                <div class="service-text">
+                    <h2>What is Cosmetic Dentistry?</h2>
+                    <p>Cosmetic dentistry focuses on improving the appearance of your teeth, gums, and overall smile. It goes beyond oral health to address aesthetic concerns. Whether you want a brighter smile, straighter teeth, or to repair chips and gaps, our cosmetic treatments can help you achieve stunning, natural-looking results that boost your confidence.</p>
+                    <h2>Our Approach to a Smile Makeover</h2>
+                    <p>Your smile makeover journey begins with a personalized consultation where we discuss your goals. We offer a range of services, including <strong>professional teeth whitening</strong> for a dazzlingly bright smile, custom-crafted <strong>porcelain veneers</strong> to correct imperfections, and composite bonding for minor repairs. We use a digital smile design process to show you a preview of your results, ensuring we create a smile that is not only beautiful but also uniquely yours.</p>
+                    <a href="appointment.html" class="btn">Design Your New Smile</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://i.pinimg.com/1200x/17/61/bb/1761bb47bcb683901cdab2947ee73913.jpg" alt="A person with a bright, beautiful smile">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="reveal-on-scroll">
+        <div class="container">&copy; 2025 Dental Clinic. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => { revealObserver.observe(el); });
+    </script>
+</body>
+</html>
